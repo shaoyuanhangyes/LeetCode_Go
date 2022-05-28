@@ -19,7 +19,20 @@ for low <= high    ////   for i := 1; i <= len; ++i {}
 
 fmt.Println(数组名) 即可输出全部的数组元素
 
+### Go后插法创建单链表
 ```
-
+func createList(nums []int) *ListNode {
+	prev := new(ListNode)
+	prev.Val = nums[0]
+	prevHead := new(ListNode)
+	prevHead = prev
+	for i:=1;i<len(nums);i++ {
+		temp := new(ListNode)
+		temp.Val = nums[i]
+		prev.Next = temp
+		prev = temp
+	}
+	return prevHead
+}
 ```
 
